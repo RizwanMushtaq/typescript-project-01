@@ -1,2 +1,1 @@
-console.log('Sec7')
-// Its a feature
+console.log('Sec7UtilityTypes')
