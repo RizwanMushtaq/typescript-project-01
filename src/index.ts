@@ -1,80 +1,43 @@
 console.log('Discriminated Unions')
-// It is an idea 
+// It's a pattern by which using Type Guards makes easier
+// Type Guards using Discriminated Unions
+// We can use it with interfaces as well as classes and objects
 
-
-type Admin = {
-    name: string;
-    privileges: string[]
+interface Bird {
+    type: 'bird'
+    flyingSpeed: number
 }
 
-type Employee = {
-    name: string
-    startDate: Date
+interface Horse {
+    type: 'horse'
+    runningSpeed: number
 }
 
-type ElevatedEmployee = Admin & Employee
+type Animal = Bird | Horse
 
-const e1: ElevatedEmployee = {
-    name: 'Rizwan',
-    privileges: ['create-server'],
-    startDate: new Date()
-}
+function moveAnimal(animal: Animal){
+    // if('flyingSpeed' in animal){
+    //     console.log('Moving with Speed: ' + animal.flyingSpeed)
+    // }
+    // if('runningSpeed' in animal){
+    //     console.log('Moving with Speed: ' + animal.runningSpeed)
+    // }
 
-type Combinable = string | number
-type Numeric = number | boolean
-
-type Universal = Combinable & Numeric
-
-//Type guard using "typeof"
-function add (a: Combinable, b: Combinable){
-    // this is type guard using typeof
-    if(typeof a === 'string' || typeof b === 'string') {
-        return a.toString() + b.toString()
+    let speed
+    switch(animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed
+            break
+        case 'horse':
+            speed = animal.runningSpeed
+            break
     }
-    return a+b
+    console.log('Moving at speed: ' + speed)
 }
 
-//Another way to create Type Guards using "in"
-type UnknownEmploy = Employee | Admin
-function printEmployeeInformation(emp: UnknownEmploy) {
-    console.log('Name: ' + emp.name)
-    if('privileges' in emp){
-        console.log('Privileges: ' + emp.privileges)
-    }
-    if('startDate' in emp){
-        console.log('Startdate: ' + emp.startDate)
-    }
+let a1: Animal
+a1 = {
+    type: 'horse',
+    runningSpeed: 45 
 }
-printEmployeeInformation(e1)
-
-//Another way to create type Guard using "instanceOf"
-class Car {
-    drive(){
-        console.log('Driving...')
-    }
-}
-class Truck {
-    drive(){
-        console.log('Driving a Truck...')
-    }
-
-    loadCargo(amount: number){
-        console.log('Loading Cargo ...' + amount)
-    }
-}
-
-type Vehicle = Car | Truck
-
-const v1 = new Car()
-const v2 = new Truck()
-
-function useVehicle(vehicle: Vehicle){
-    vehicle.drive()
-    if(vehicle instanceof Truck){
-        vehicle.loadCargo(1000)
-    }
-}
-
-useVehicle(v1)
-useVehicle(v2)
-
+moveAnimal(a1)
