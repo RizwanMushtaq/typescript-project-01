@@ -1,3 +1,3 @@
 "use strict";
-console.log('Optional Chaining');
+console.log('Sec7');
 //# sourceMappingURL=index.js.map
