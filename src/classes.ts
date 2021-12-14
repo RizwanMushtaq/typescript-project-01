@@ -1,30 +1,32 @@
-class Department {
-    private name: string
-    private employees: string[] = []
+// console.log('Classes TS')
 
-    constructor(n: string) {
-        this.name = n
-    }
+// class Department {
+//     private name: string
+//     private employees: string[] = []
 
-    describe(this: Department) {
-        console.log('Department. ' + this.name)
-    }
+//     constructor(n: string) {
+//         this.name = n
+//     }
 
-    addEmployee(employee: string) {
-        this.employees.push(employee)
-    }
+//     describe(this: Department) {
+//         console.log('Department. ' + this.name)
+//     }
 
-    printEmployeeInformation() {
-        console.log(this.employees.length)
-        console.log(this.employees)
-    }
+//     addEmployee(employee: string) {
+//         this.employees.push(employee)
+//     }
 
-}
+//     printEmployeeInformation() {
+//         console.log(this.employees.length)
+//         console.log(this.employees)
+//     }
 
-const tech = new Department('Tech')
-tech.addEmployee('Rizwan')
-tech.addEmployee('Max')
+// }
 
-console.log(tech)
-tech.describe()
-tech.printEmployeeInformation()
+// const tech = new Department('Tech')
+// tech.addEmployee('Rizwan')
+// tech.addEmployee('Max')
+
+// console.log(tech)
+// tech.describe()
+// tech.printEmployeeInformation()
