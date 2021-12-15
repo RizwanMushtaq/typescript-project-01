@@ -21,4 +21,4 @@ Person = __decorate([
 ], Person);
 const pers = new Person();
 console.log(pers);
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=Sec8FirstClassDecorator.js.map
