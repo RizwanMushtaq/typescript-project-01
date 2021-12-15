@@ -1,4 +1,4 @@
-// console.log('Sec8FirstClassDecorator')
+// console.log('Sec8DecoratorFactories')
 
 // //Decorators help to write a code which is easily used by other coders
 // //Decorators does not have direct impact on end users of website
@@ -8,12 +8,18 @@
 // //Decorator is just a function
 // //Decorators gets executes when a class is defined
 
-// function Logger(constructor: Function) {
-//     console.log('Logging...')
-//     console.log(constructor)
+// //Decorator Factories - It give us more power 
+// //We can add a custom string to our decorator function
+
+// function Logger(logString: string) {
+//     return function(constructor: Function) {
+//         console.log(logString)
+//         console.log(constructor)
+//     }
 // }
 
-// @Logger
+
+// @Logger('LOGGING - PERSON')
 // class Person {
 //     name = 'Rizwan'
 
@@ -24,4 +30,5 @@
 
 // const pers = new Person()
 // console.log(pers)
+
 
