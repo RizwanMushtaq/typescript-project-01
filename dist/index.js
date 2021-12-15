@@ -1,3 +1,3 @@
 "use strict";
-console.log('Sec8ReturingClassInClassDecorator');
+console.log('Sec9');
 //# sourceMappingURL=index.js.map

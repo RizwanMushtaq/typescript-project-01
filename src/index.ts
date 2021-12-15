@@ -1,2 +1,1 @@
-console.log('Sec8ReturingClassInClassDecorator')
-
+console.log('Sec9')
